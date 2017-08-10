@@ -53,6 +53,10 @@ class MultiSelectDropDown extends React.Component {
             color: "#000",
             backgroundColor: "#fff"
         };
+        const optionsBg = {
+            backgroundColor: "cornflowerblue",
+            color: "#fff"
+        };
         let selected = [];
         this.state.multiSelect.map((day) => {
             if (day.value) {
@@ -79,7 +83,7 @@ class MultiSelectDropDown extends React.Component {
                 <ul className={"sub-menu " + (this.state.dropDownClicked ? "show" : "")}>
                     {this.state.multiSelect.map((el, i) => {
                         return (
-                            <li key={el.id} value={el.value} className={el.value ? "bg-color-blue" : ""} onClick={this.checkBoxOnchange.bind(this, i, !el.value)}>
+                            <li key={el.id} value={el.value} style={el.value ? optionsBg : {}} onClick={this.checkBoxOnchange.bind(this, i, !el.value)}>
                                 <div className="option-list">{el.label}</div>
                             </li>
                         );

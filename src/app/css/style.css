@@ -32,6 +32,7 @@
 
 .sub-menu li .option-list {
     /*margin-bottom: 2px;*/
+    text-transform: capitalize;
     border-bottom: solid 2px #fff;
     padding: 2px 5px;
 }

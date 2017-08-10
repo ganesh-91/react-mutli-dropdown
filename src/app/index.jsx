@@ -71,49 +71,34 @@ class MultiSelectDropDown extends React.Component {
         //         }
         //     </div>
         // );
-        return (
-            <div className="dropdown">
-                <div className="dropdown-element selected-list" >
-                    {selected.map((obj) => {
-                        return (
-                            <span key={obj.id}>{obj.label}
-                                <a href="#" className="close-classic" />
-                            </span>);
-                    })
-                    }
-                </div>
-                {/*<button className="dropbtn dropdown-element" onBlur={() => { this.setState({ dropDownClicked: false }) }} onClick={() => { this.setState({ dropDownClicked: !this.state.dropDownClicked }) }}></button>*/}
-                <button className="dropbtn dropdown-element" onClick={() => {
-                    this.setState({ dropDownClicked: !this.state.dropDownClicked });
-                }} />
-                <div className={"dropdown-content " + (this.state.dropDownClicked ? "show" : "hide")}>
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-                <div className="clear-both" />
+        let selectedList = (
+            <div className="selected-options">
+                {selected.map((obj) => {
+                    return (
+                        <span key={obj.id} onClick={this.selectedDayClick.bind(this, obj.id)} className="selected-single" >{obj.label}
+                        </span>
+                    );
+                })
+                }
             </div>
+        );
+        return (
+            <div className="select-element">
+                {selectedList}
+                <span className={"arrow " + (this.state.dropDownClicked ? "active" : "")} onClick={() => {
+                    this.setState({ dropDownClicked: !this.state.dropDownClicked });
+                }} >&#9660;</span>
+                <ul className={"sub-menu " + (this.state.dropDownClicked ? "show" : "")}>
+                    {this.state.multiSelect.map((el, i) => {
+                        return (
+                            <li key={el.id} value={el.value} className={el.value ? "bg-color-blue" : ""} onClick={this.checkBoxOnchange.bind(this, i, !el.value)}>
+                                <div className="option-list">{el.label}</div>
+                            </li>
+                        );
+                    })}
 
-            // <div>
-            //     <ButtonToolbar className="multi-select">
-            //         <SplitButton bsSize="small" bsStyle="default" title={selectedList} id="split-button-caret">
-            //             {this.state.multiSelect.map((day, i) => {
-            //                 {/*return (<Checkbox key={day.id} value={day.value} checked={day.value} onChange={this.checkBoxOnchange.bind(this, i, !day.value)}> {day.label} </Checkbox>);*/ }
-            //                 return (<div key={day.id} value={day.value} className={"dd-value " + (day.value ? "bg-color-blue" : "")} onClick={this.checkBoxOnchange.bind(this, i, !day.value)}> {day.label} </div>);
-            //             })}
-            //         </SplitButton>
-            //     </ButtonToolbar>
-            //     {/*<FormGroup className="col-md-5 col-md-offset-3">
-            //     <InputGroup className="multi-select-input" bsSize="small" >
-            //         <FormControl type="text" />
-            //         <DropdownButton
-            //             componentClass={InputGroup.Button}
-            //             id="input-dropdown-addon">
-            //             <MenuItem key="1">Item</MenuItem>
-            //         </DropdownButton>
-            //     </InputGroup>
-            // </FormGroup>*/}
-            // </div>
+                </ul>
+            </div>
         );
     }
     selectedDayClick(id) {
@@ -138,4 +123,4 @@ class MultiSelectDropDown extends React.Component {
     }
 }
 
-// render(<MultiSelectDropDown />, document.getElementById("app"));
+render(<MultiSelectDropDown />, document.getElementById("app"));

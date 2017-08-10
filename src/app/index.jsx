@@ -63,10 +63,10 @@ class MultiSelectDropDown extends React.Component {
                 selected.push({ label: day.label, id: day.id });
             }
         });
-        let selectedList = (<label className="options-list">{
+        let selectedList = (<label className="selected-options-badges-list">{
             selected.map((obj) => {
                 return (
-                    <span style={optionsBadge} key={obj.id} onClick={this.selectedDayClick.bind(this, obj.id)} className="selected-single" >{obj.label}
+                    <span style={optionsBadge} key={obj.id} onClick={this.selectedDayClick.bind(this, obj.id)} className="selected-options-badges" >{obj.label}
                     </span>
                 );
             })
@@ -107,11 +107,6 @@ class MultiSelectDropDown extends React.Component {
         let dd = this.state.multiSelect.slice();
         dd[index].value = value;
         this.setState({ multiSelect: dd });
-        // this.state.multiSelect.map((day)=>{
-        //     if(day.value){
-        //         this.setState({selected:this.state.selected.concat(dd[index].label,", ")});
-        //     }
-        // });
     }
 }
 

@@ -50,14 +50,14 @@
     padding: 0 0 0 10px;
 }
 
-.selected-options .options-list {
+.selected-options .selected-options-badges-list {
     display: inline-block;
     width: 250px;
     white-space: nowrap;
     overflow-x: hidden;
 }
 
-.selected-options .selected-single:after {
+.selected-options .selected-options-badges:after {
     content: '×';
     cursor: pointer;
     margin-left: 5px;
@@ -74,7 +74,8 @@
     -ms-user-select: none;
 }
 
-.selected-single {
+.selected-options-badges {
+    text-transform: capitalize;
     font-size: 14px;
     border-radius: 2px;
     padding: 0 5px;

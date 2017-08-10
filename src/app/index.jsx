@@ -49,32 +49,20 @@ class MultiSelectDropDown extends React.Component {
         };
     }
     render() {
-        const divStyle = {
-            minWidth: "10px",
-            height: "20px",
-            padding: "5px"
+        const optionsBadge = {
+            color: "#000",
+            backgroundColor: "#fff"
         };
         let selected = [];
         this.state.multiSelect.map((day) => {
             if (day.value) {
                 selected.push({ label: day.label, id: day.id });
-                // this.setState({selected:this.state.selected.concat(day.label,", ")});
             }
         });
-        // let selectedList = (
-        //     <div>
-        //         {selected.map((obj) => {
-        //             return (<ListGroupItem key={obj.id} bsStyle="success">{obj.label}
-        //                 <i className="glyphicon glyphicon-remove action-icon" onClick={this.selectedDayClick.bind(this, obj.id)} />
-        //             </ListGroupItem>);
-        //         })
-        //         }
-        //     </div>
-        // );
         let selectedList = (<label className="options-list">{
             selected.map((obj) => {
                 return (
-                    <span key={obj.id} onClick={this.selectedDayClick.bind(this, obj.id)} className="selected-single" >{obj.label}
+                    <span style={optionsBadge} key={obj.id} onClick={this.selectedDayClick.bind(this, obj.id)} className="selected-single" >{obj.label}
                     </span>
                 );
             })

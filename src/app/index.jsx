@@ -71,23 +71,23 @@ class MultiSelectDropDown extends React.Component {
         //         }
         //     </div>
         // );
-        let selectedList = (
-            <div className="selected-options">
-                {selected.map((obj) => {
-                    return (
-                        <span key={obj.id} onClick={this.selectedDayClick.bind(this, obj.id)} className="selected-single" >{obj.label}
-                        </span>
-                    );
-                })
-                }
-            </div>
-        );
+        let selectedList = (<label className="options-list">{
+            selected.map((obj) => {
+                return (
+                    <span key={obj.id} onClick={this.selectedDayClick.bind(this, obj.id)} className="selected-single" >{obj.label}
+                    </span>
+                );
+            })
+        }</label>);
         return (
-            <div className="select-element">
-                {selectedList}
-                <span className={"arrow " + (this.state.dropDownClicked ? "active" : "")} onClick={() => {
-                    this.setState({ dropDownClicked: !this.state.dropDownClicked });
-                }} >&#9660;</span>
+            <div className="multi-select" tabIndex="0" onBlur={() => {
+                this.setState({ dropDownClicked: false });
+            }}>
+                <div className="selected-options">{selectedList}
+                    <div className="arrow" onClick={() => {
+                        this.setState({ dropDownClicked: !this.state.dropDownClicked });
+                    }}>&#9660;</div>
+                </div>
                 <ul className={"sub-menu " + (this.state.dropDownClicked ? "show" : "")}>
                     {this.state.multiSelect.map((el, i) => {
                         return (

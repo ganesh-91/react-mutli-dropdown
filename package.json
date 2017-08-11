@@ -15,12 +15,12 @@
         "url": "https://github.com/ganesh-91/react-mutli-dropdown"
     },
     "keywords": [
-        "react",
-        "multi",
-        "select",
-        "react",
-        "multi",
-        "select"
+        "react-multi-select-dropdown",
+        "multiselect",
+        "react-select-multi",
+        "react-multi-options",
+        "react-select",
+        "react-component"
     ],
     "scripts": {
         "build": "webpack"

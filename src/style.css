@@ -1,11 +1,9 @@
 .arrow {
-    top: 2px;
     margin: 0 5px;
     display: inline-block;
     cursor: pointer;
     float: right;
     font-size: 12px;
-    position: relative;
 }
 
 .sub-menu.show {
@@ -55,13 +53,14 @@
 }
 
 .selected-options .selected-options-badges-list {
+    margin: 0;
     text-align: left;
     line-height: 1;
     vertical-align: middle;
     display: inline-block;
     width: 256px;
     white-space: nowrap;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .selected-options .selected-options-badges:after {

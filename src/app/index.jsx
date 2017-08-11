@@ -3,7 +3,7 @@ import React from "react";
 import { render } from "react-dom";
 import "./css/style.css";
 
-class MultiSelectDropDown extends React.Component {
+class ReactMultiSelect extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -83,8 +83,11 @@ class MultiSelectDropDown extends React.Component {
                 <ul className={"sub-menu " + (this.state.dropDownClicked ? "show" : "")}>
                     {this.state.multiSelect.map((el, i) => {
                         return (
-                            <li key={el.id} value={el.value} style={el.value ? optionsBg : {}} onClick={this.checkBoxOnchange.bind(this, i, !el.value)}>
-                                <div className="option-list">{el.label}</div>
+                            <li key={el.id} value={el.value}  >
+                                <div className="option-list" style={el.value ? optionsBg : {}} onClick={this.checkBoxOnchange.bind(this, i, !el.value)}>{el.label}</div>
+                                {/*<input id={el.label} type="checkbox" checked={el.value} value={el.value}
+                                    onChange={this.checkBoxOnchange.bind(this, i, !el.value)} />
+                                <label htmlFor={el.label}>{el.label}</label>*/}
                             </li>
                         );
                     })}
@@ -103,11 +106,11 @@ class MultiSelectDropDown extends React.Component {
         });
         this.setState({ multiSelect: filteredToasts });
     }
-    checkBoxOnchange(index, value) {
+    checkBoxOnchange(index, value, e) {
         let dd = this.state.multiSelect.slice();
         dd[index].value = value;
         this.setState({ multiSelect: dd });
     }
 }
 
-render(<MultiSelectDropDown />, document.getElementById("app"));
+render(<ReactMultiSelect />, document.getElementById("app"));

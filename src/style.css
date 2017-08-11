@@ -53,6 +53,7 @@
 }
 
 .selected-options .selected-options-badges-list {
+    font-weight: 400;
     margin: 0;
     text-align: left;
     line-height: 1;
@@ -71,6 +72,8 @@
 }
 
 .multi-select {
+    background-color: #fff;
+    border-radius: 4px;
     width: 290px;
     outline: none;
     display: inline-block;

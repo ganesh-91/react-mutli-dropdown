@@ -10,7 +10,8 @@ var config = {
     entry: APP_DIR + "/index.jsx",
     output: {
         path: BUILD_DIR,
-        filename: "bundle.js"
+        filename: "bundle.js",
+        libraryTarget: "commonjs2"
     },
     module: {
         loaders: [

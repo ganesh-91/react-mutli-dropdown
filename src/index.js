@@ -1,10 +1,7 @@
-// import js files
-import React from "react";
-import { render } from "react-dom";
-import "./css/style.css";
-
+import React from 'react';
+import "./style.css";
 class ReactMultiSelect extends React.Component {
-    constructor() {
+  constructor() {
         super();
         this.state = {
             selected: "",
@@ -72,7 +69,8 @@ class ReactMultiSelect extends React.Component {
             })
         }</label>);
         return (
-            <div className="multi-select" tabIndex="0" onBlur={() => {
+            <div className="multi-select" tabIndex="0" 
+            onBlur={() => {
                 this.setState({ dropDownClicked: false });
             }}>
                 <div className="selected-options">{selectedList}
@@ -112,5 +110,4 @@ class ReactMultiSelect extends React.Component {
         this.setState({ multiSelect: dd });
     }
 }
-
-render(<ReactMultiSelect />, document.getElementById("app"));
+export default ReactMultiSelect;
